@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Krzysztof Wawer"]
   spec.email         = ["krzysztof.wawer@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Data layer for Mars CMS}
+  spec.description   = %q{Handle database data for Mars CMS. Allow to work with different databases.}
+  spec.homepage      = "https://github.com/marscms/mars-diacria"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
