@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+
+gemspec path: [GEMFILE_PATH]
+
+gem "dry-struct", [DRY_STRUCT_VERSION]
