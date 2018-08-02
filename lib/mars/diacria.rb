@@ -1,5 +1,6 @@
 require "dry-struct"
 
+require "mars/diacria/errors"
 require "mars/diacria/types"
 require "mars/diacria/entities/account"
 require "mars/diacria/entities/membership"

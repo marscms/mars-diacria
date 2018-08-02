@@ -45,6 +45,20 @@ RSpec.describe Mars::Diacria::BaseRepository do
       SampleRepository.adapter = double
     end
 
+    it "raise error when adapter missing" do
+      SampleRepository.adapter = nil
+      expect {
+        SampleRepository.all
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'all' for nil adapter")
+    end
+
+    it "raise error when adapter does not contain method" do
+      SampleRepository.adapter = double(:adapter)
+      expect {
+        SampleRepository.all
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'all' for #<Double :adapter> adapter")
+    end
+
     it "call .all on adapter" do
       expect(SampleRepository.adapter).to receive(:all).and_return([])
       SampleRepository.all
@@ -66,6 +80,20 @@ RSpec.describe Mars::Diacria::BaseRepository do
   describe ".find" do
     before do
       SampleRepository.adapter = double
+    end
+
+    it "raise error when adapter missing" do
+      SampleRepository.adapter = nil
+      expect {
+        SampleRepository.find(123)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'find' for nil adapter")
+    end
+
+    it "raise error when adapter does not contain method" do
+      SampleRepository.adapter = double(:adapter)
+      expect {
+        SampleRepository.find(123)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'find' for #<Double :adapter> adapter")
     end
 
     it "call .find on adapter" do
@@ -91,6 +119,20 @@ RSpec.describe Mars::Diacria::BaseRepository do
 
     before do
       SampleRepository.adapter = double
+    end
+
+    it "raise error when adapter missing" do
+      SampleRepository.adapter = nil
+      expect {
+        SampleRepository.create(entity)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'create' for nil adapter")
+    end
+
+    it "raise error when adapter does not contain method" do
+      SampleRepository.adapter = double(:adapter)
+      expect {
+        SampleRepository.create(entity)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'create' for #<Double :adapter> adapter")
     end
 
     it "call .create on adapter" do
@@ -119,6 +161,20 @@ RSpec.describe Mars::Diacria::BaseRepository do
       SampleRepository.adapter = double
     end
 
+    it "raise error when adapter missing" do
+      SampleRepository.adapter = nil
+      expect {
+        SampleRepository.update(entity)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'update' for nil adapter")
+    end
+
+    it "raise error when adapter does not contain method" do
+      SampleRepository.adapter = double(:adapter)
+      expect {
+        SampleRepository.update(entity)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'update' for #<Double :adapter> adapter")
+    end
+
     it "call .update on adapter" do
       expect(SampleRepository.adapter).to receive(:update).and_return({})
       SampleRepository.update(OpenStruct.new)
@@ -143,6 +199,20 @@ RSpec.describe Mars::Diacria::BaseRepository do
 
     before do
       SampleRepository.adapter = double
+    end
+
+    it "raise error when adapter missing" do
+      SampleRepository.adapter = nil
+      expect {
+        SampleRepository.delete(entity)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'delete' for nil adapter")
+    end
+
+    it "raise error when adapter does not contain method" do
+      SampleRepository.adapter = double(:adapter)
+      expect {
+        SampleRepository.delete(entity)
+      }.to raise_error(Mars::Diacria::AdapterMethodMissing, "undefined method 'delete' for #<Double :adapter> adapter")
     end
 
     it "call .delete on adapter" do
